@@ -39,5 +39,8 @@ router.get('/analyses', async (req, res) => {
 
 // youtubeController.js
 router.post('/video/info', (req, res) => youtubeController.getVideoInfo(req, res));
+router.post('/video/comments', (req, res) => youtubeController.getComments(req, res));
+router.post('/video/validate', (req, res) => youtubeController.validateVideoUrl(req, res));
+router.post('/video/comments-status', (req, res) => youtubeController.checkCommentsEnabled(req, res));
 
 module.exports = router
