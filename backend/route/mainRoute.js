@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const analyzeController = require('../controller/analyzeController.js');
+const AnalysisController = require('../controller/analysisController.js');
+const YoutubeController = require('../controller/youtubeController.js');
 
-const analyzeControllerInstance = new analyzeController();
+const analysisController = new analyzeController();
+const youtubeController = new YoutubeController();
 
 router.post('/analyze', (req, res) => analyzeControllerInstance.analyzeVideoComments(req, res));
 
-router.get('/analyze/:videoId', async (req, res) => {
+router.get('/analysis/:videoId', async (req, res) => {
     try {
         const videoAnalysis = await VideoAnalysisModel.findOne({
             videoLink: { $regex: req.params.videoId, $options: 'i' }
@@ -35,5 +37,7 @@ router.get('/analyses', async (req, res) => {
     }
 })
 
+// youtubeController.js
+router.post('/video/info', (req, res) => youtubeController.getVideoInfo(req, res));
 
 module.exports = router
