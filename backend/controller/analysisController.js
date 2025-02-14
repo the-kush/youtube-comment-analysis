@@ -189,3 +189,5 @@ class AnalysisController {
       }
 
 }
+
+module.exports = AnalysisController;
