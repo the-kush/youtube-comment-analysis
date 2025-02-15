@@ -15,7 +15,9 @@ class AnalysisController {
     
         try {
           // Check if analysis already exists
-          const existingAnalysis = await VideoAnalysisModel.findOne({ videoLink: videoUrl });
+          console.log("VideoAnalysisModel:", VideoAnalysisModel);
+          const existingAnalysis = await VideoAnalysisModel.findOne({ videoUrl });
+
           if (existingAnalysis) {
             return res.json(this.formatAnalysisResponse(existingAnalysis));
           }

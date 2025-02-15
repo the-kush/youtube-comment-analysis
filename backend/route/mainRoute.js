@@ -6,7 +6,7 @@ const YoutubeController = require('../controller/youtubeController.js');
 const analysisController = new AnalysisController();
 const youtubeController = new YoutubeController();
 
-router.post('/analyze', (req, res) => analyzeControllerInstance.analyzeVideoComments(req, res));
+//router.post('/analyze', (req, res) => analyzeControllerInstance.analyzeVideoComments(req, res));
 
 router.post('/analyze', (req, res) => {
     // Endpoint to perform comprehensive comment analysis
